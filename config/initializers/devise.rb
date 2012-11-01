@@ -219,13 +219,13 @@ Devise.setup do |config|
   end
 
   gl.omniauth_providers.each do |gl_provider|
-    config.omniauth gl_provider['name'].to_sym, 
-                    gl_provider['app_id'], 
-                    gl_provider['app_secret'],
-                    gl_provider['options'] || {}
-  end
-  
-  if gl.google_apps_enabled?
-    config.omniauth :google_apps, :domain => gl.google_apps["domain"]
+    if gl_provider['app_id'] && gl_provider['app_secret']
+      config.omniauth gl_provider['name'].to_sym, 
+                      gl_provider['app_id'], 
+                      gl_provider['app_secret'],
+                      gl_provider['args'] || {}
+    else
+      config.omniauth gl_provider['name'].to_sym, gl_provider['args'] || {}
+    end
   end
 end
