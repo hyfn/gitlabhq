@@ -59,6 +59,9 @@ omniauth:
     # - { name: 'github', app_id: 'YOUR APP ID',
     #     app_secret: 'YOUR APP SECRET' }
 
+google_apps:
+  enabled: false
+  domain: example.com
 
 #
 # 3. Advanced settings:

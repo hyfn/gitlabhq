@@ -137,6 +137,12 @@ class Settings < Settingslogic
     def omniauth_providers
       (omniauth_enabled? && omniauth['providers']) || []
     end
+    
+    def google_apps_enabled?
+      google_apps && google_apps['enabled']
+    rescue Settingslogic::MissingSetting
+      false
+    end
 
     def disable_gravatar?
       app['disable_gravatar'] || false

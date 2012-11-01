@@ -223,7 +223,9 @@ Devise.setup do |config|
                     gl_provider['app_id'], 
                     gl_provider['app_secret'],
                     gl_provider['options'] || {}
-    #asd
-    
+  end
+  
+  if gl.google_apps_enabled?
+    config.omniauth :google_apps, :domain => gl.google_apps["domain"]
   end
 end
