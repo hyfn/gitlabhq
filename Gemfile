@@ -1,5 +1,7 @@
 source "http://rubygems.org"
 
+gem "pry"
+
 def darwin_only(require_as)
   RUBY_PLATFORM.include?('darwin') && require_as
 end
