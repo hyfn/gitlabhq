@@ -73,13 +73,13 @@ class Project < ActiveRecord::Base
       end
 
       project
-    rescue Gitlab::Gitolite::AccessDenied => ex
-      project.error_code = :gitolite
-      project
-    rescue => ex
-      project.error_code = :db
-      project.errors.add(:base, "Can't save project. Please try again later")
-      project
+    # rescue Gitlab::Gitolite::AccessDenied => ex
+    #   project.error_code = :gitolite
+    #   project
+    # rescue => ex
+    #   project.error_code = :db
+    #   project.errors.add(:base, "Can't save project. Please try again later")
+    #   project
     end
 
     def access_options
